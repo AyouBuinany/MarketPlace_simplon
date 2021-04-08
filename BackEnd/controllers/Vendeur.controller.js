@@ -37,8 +37,8 @@ let RegisterVendeur = function (req, res, next) {
         port: 465,
         secure: true, // true for 465, false for other ports
         auth: {
-          user: 'ayoub.elbouinany99@gmail.com',
-         pass: 'Ayoub123@'
+          user: '########',
+         pass: '#######'
         },
       })
       if(err){
@@ -48,7 +48,7 @@ let RegisterVendeur = function (req, res, next) {
        
        console.log(token);
        let info = await transporter.sendMail({
-        from: 'Ayoub.elbouinany99@gmail.com', // sender address
+        from: '#####', // sender address
         to: email, // list of receivers
         subject: "new password ✔", // Subject line
         html :
