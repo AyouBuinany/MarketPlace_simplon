@@ -14,9 +14,10 @@ import ProductOverviewContainer from './pages/productOverview/ProductOverviewCon
 // import DashboardContainer from './pages/dashboard/DashboardContainer'
 // import ProductOverview from './pages/productOverview/ProductOverviewContainer'
  import ShoppingBagContainer from './pages/shoppingBag/ShoppingBagContainer'
-// import CheckoutContainer from './pages/checkout/checkoutContainer'
-// import CheckoutSuccessContainer from './pages/checkoutSuccess/CheckoutSuccessContainer'
-// import CheckoutCancel from './pages/checkoutCancel/CheckoutCancel'
+ import CheckoutContainer from './pages/checkout/checkoutContainer'
+import CheckoutSuccessContainer from './pages/checkoutSuccess/CheckoutSuccessContainer'
+import CheckoutCancel from './pages/checkoutCancel/CheckoutCancel'
+import Profile from './pages/Profile/Profile';
 
 class App extends Component {
   componentDidMount() {
@@ -35,20 +36,15 @@ class App extends Component {
             <Route key="productOverview" path="/product-overview" component={ProductOverviewContainer} />
             {this.props.token && [
             <Route key="dashboard" path="/dashboard" component={DashboardContainer} />,
-            <Route key="ShoppingBagContainer" path="/bag" component={ShoppingBagContainer} />
+            <Route key="ShoppingBagContainer" path="/bag" component={ShoppingBagContainer} />,
+            <Route key="Checkout" path="/checkout" component={CheckoutContainer} />,
+            <Route key="success" path="/success_page" component={CheckoutSuccessContainer} />,
+              <Route key="cancel" path="/cancel_page" component={CheckoutCancel} />,
+              <Route key="profile" path="/profile" component={Profile} />,
             ]}
             <Route exact path="/" component={DashboardContainer} />
             <Redirect to='/login' /> 
-            {/* <Route key="productOverview" path="/product-overview" component={ProductOverview} />,
-            {this.props.token && [
-              <Route key="ShoppingBagContainer" path="/bag" component={ShoppingBagContainer} />,
-              <Route key="Checkout" path="/checkout" component={CheckoutContainer} />,
-              <Route key="success" path="/success_page" component={CheckoutSuccessContainer} />,
-              <Route key="cancel" path="/cancel_page" component={CheckoutCancel} />,
-            ]}
-            <Route key="dashboard" path="/dashboard" component={DashboardContainer} />,
-            <Route exact path="/" component={DashboardContainer} />
-            <Redirect to='/login' /> */}
+            
           </Switch>
         </Router>
       </div>

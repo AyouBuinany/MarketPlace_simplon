@@ -2,7 +2,7 @@ const { Double } = require('bson');
 var mongoose = require('mongoose');
 
 var commandeSchema = mongoose.Schema({
-  idClient: {
+  idUser: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'users'
   },
@@ -10,7 +10,10 @@ var commandeSchema = mongoose.Schema({
     type: Date,
     default:Date.now
   },
-  prixTotal: {
+  totalPrice: {
+    type: Number
+  },
+  totalQuantity: {
     type: Number
   },
   adresse: {
@@ -21,6 +24,9 @@ var commandeSchema = mongoose.Schema({
   },
   codePostal: {
     type: String
+  },
+  items: {
+    type: Object
   }
 });
 
@@ -33,6 +39,11 @@ module.exports.getAllCommandes = function (callback) {
 //get commande by id
 module.exports.getCommandeById = function (id,callback) {
   Commande.findById(id,callback)
+}
+
+//get commande by Userid
+module.exports.getCommandeByUserId = function (idU,callback) {
+  Commande.find({idUser:idU},callback)
 }
 
 //remove commande

@@ -12,9 +12,7 @@ export default class ProductOverview extends Component {
     }
   }
   componentDidMount() {
-  //console.log('this : ' + this.props.location.pathname.split("/").slice(-1)[0]);
-    // let {id} = this.props.match.params;
-    // console.log("id" + id );
+  
     this.props.getProduct(this.props.location.pathname.split("/").slice(-1)[0])
   }
 

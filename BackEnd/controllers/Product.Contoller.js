@@ -163,8 +163,7 @@ function categorizeQueryString(queryObj) {
          let range_arr = []
          let query_arr = []
          // multi ranges
-// console.log('queryObj[i]');
-// console.log(queryObj[i]);
+
          if (queryObj[i].constructor === Array) {
           console.log(queryObj[i]);
            for (const r of queryObj[i]) {
@@ -172,7 +171,8 @@ function categorizeQueryString(queryObj) {
              range_arr = r.split('-')
              console.log('arr ' + range_arr);
              query_arr.push({
-            price: { $gt: range_arr[0], $lt: range_arr[1] }
+            price: { $gt: range_arr[0], $lt: range_arr[1] },
+            quantity: { $gt: 0}
             })
           }
         }
@@ -181,8 +181,8 @@ function categorizeQueryString(queryObj) {
           range_arr = queryObj[i].split('-')
           console.log('string  ' + range_arr);
           query_arr.push({
-            price: { $gt: range_arr[0], $lt: range_arr[1] 
-          }
+            price: { $gt: range_arr[0], $lt: range_arr[1] },
+            quantity: { $gt: 0}
           })
         }
 

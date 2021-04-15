@@ -10,18 +10,23 @@ export default class Header extends Component {
   constructor(props) {
     super(props)
   }
+
  
   render() {
     const { user_token,
       categorys,
       getProductsByCategory,
-      getAllProducts } = this.props
+      getAllProducts,
+      getCartByUserId,
+      cart
+    } = this.props
     return (
       <div className={styles.outbox}>
           {/* top user header */}
           <div className={styles.user_header}>
             <UserHeader
               user_token={user_token}
+              cart={cart}
             />
           </div>
           {/* menu header */}

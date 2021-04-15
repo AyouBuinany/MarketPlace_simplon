@@ -4,7 +4,7 @@ const {ErrorHandler} = require('./ErrorHandler')
 function ensureAuthenticated(req, res, next) {
 
    let token = req.headers['auth-token'] || req.headers['authorization']
-    
+  
   if (!token) {
     let err = new ErrorHandler('token', 401, {
       message: "Token is not supplied"

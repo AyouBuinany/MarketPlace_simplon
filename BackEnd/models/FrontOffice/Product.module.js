@@ -1,11 +1,12 @@
 var mongoose = require('mongoose');
-
+var Panier = require('./Panier.module');
 var productSchema = mongoose.Schema({
   image: {
     type: String
   },
   title: {
-    type: String
+    type: String,
+    index:true
   },
   description: {
     type: String
@@ -66,3 +67,8 @@ module.exports.updateProduct = function(id,ProductUpdate,callback) {
 module.exports.removeAllProduct = function(callback) {
   Product.remove({},callback);
 }
+
+module.exports.findAndUpdate = function(name,qty,callback) {
+  Product.updateOne({title: name},{$inc:{quantity:-qty}},callback);
+}
+

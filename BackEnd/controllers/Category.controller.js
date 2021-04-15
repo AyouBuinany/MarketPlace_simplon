@@ -6,7 +6,7 @@ const { response, json } = require('express');
 const getCategory = async (req, res,next) => {
  
     await Category.getAllCategories((err,c)=>{
-
+;
       if (err) return next(err)
       res.json({ categories: c })
       });

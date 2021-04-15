@@ -139,7 +139,7 @@ this.props.signinClient(firstName,lastName, email, password, verifyPassword)
             })
             .catch(error => {
               console.log(error);
-             // alert(error.response.data.error.message)
+              alert(error.response.data.error.message)
               return error
             }) 
       }
